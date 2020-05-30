@@ -19,13 +19,12 @@ public class Leaderboard {
     public Map<String, Integer> driverResults() {
         Map<String, Integer> results = new HashMap<>();
         for (Race race : this.races) {
-            for (Car driver : race.getResults()) {
-                String driverName = race.getCarName(driver);
-                int points = race.getPoints(driver);
-                if (results.containsKey(driverName)) {
-                    results.put(driverName, results.get(driverName) + points);
+            Map<String, Integer> raceResults = race.getRaceResults();
+            for(Map.Entry<String, Integer> entry:raceResults.entrySet()) {
+                if(results.containsKey(entry.getKey())){
+                    results.put(entry.getKey(), results.get(entry.getKey()) + entry.getValue());
                 } else {
-                    results.put(driverName, 0 + points);
+                    results.put(entry.getKey(), entry.getValue());
                 }
             }
         }

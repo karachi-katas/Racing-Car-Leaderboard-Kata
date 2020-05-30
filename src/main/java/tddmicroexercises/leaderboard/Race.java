@@ -31,7 +31,7 @@ public class Race {
         return Race.POINTS[position(car)];
     }
 
-    public List<Car> getResults() {
+    public List<Car> getContestants() {
         return results;
     }
 
@@ -42,5 +42,20 @@ public class Race {
     @Override
     public String toString() {
         return name;
+    }
+
+    public Map<String, Integer> getRaceResults() {
+        Map<String, Integer> results = new HashMap<String, Integer>();
+        for (Car driver : getContestants()) {
+            String driverName = getCarName(driver);
+            int points = getPoints(driver);
+            if (results.containsKey(driverName)) {
+                results.put(driverName, results.get(driverName) + points);
+            } else {
+                results.put(driverName, 0 + points);
+            }
+        }
+
+        return results;
     }
 }
