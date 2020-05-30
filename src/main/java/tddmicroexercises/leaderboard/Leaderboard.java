@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Leaderboard {
+public class Leaderboard implements Comparable{
 
     private final List<Race> races;
 
@@ -36,6 +36,11 @@ public class Leaderboard {
         List<String> resultsList = new ArrayList<>(results.keySet());
         Collections.sort(resultsList, new DriverByPointsDescendingComparator(results));
         return resultsList;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 
     private static final class DriverByPointsDescendingComparator implements Comparator<String> {
