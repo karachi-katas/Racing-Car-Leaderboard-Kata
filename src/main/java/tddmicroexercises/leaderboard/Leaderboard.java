@@ -16,7 +16,14 @@ public class Leaderboard {
         this.races = Arrays.asList(races);
     }
 
-    public Map<String, Integer> driverResults() {
+    public void assertScoreForDriver(String name, int expectedScore){
+        Map<String, Integer> results = driverResults();
+        int actualScore = results.get(name);
+
+        assert(actualScore == expectedScore);
+    }
+
+    private Map<String, Integer> driverResults() {
         Map<String, Integer> results = new HashMap<>();
         for (Race race : this.races) {
             for (Driver driver : race.getResults()) {

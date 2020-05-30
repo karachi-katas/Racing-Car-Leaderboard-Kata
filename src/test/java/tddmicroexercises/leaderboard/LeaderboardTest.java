@@ -17,13 +17,7 @@ public class LeaderboardTest {
     @Test
     public void itShouldSumThePoints() {
         // setup
-
-        // act
-        Map<String, Integer> results = TestData.sampleLeaderboard1.driverResults();
-
-        // verify
-        assertTrue("results " + results, results.containsKey("Lewis Hamilton"));
-        assertEquals(18 + 18 + 25, (int) results.get("Lewis Hamilton"));
+        TestData.sampleLeaderboard1.assertScoreForDriver("Lewis Hamilton", 18+18+25);
     }
 
     @Test
