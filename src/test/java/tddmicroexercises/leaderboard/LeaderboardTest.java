@@ -19,7 +19,7 @@ public class LeaderboardTest {
         // setup
 
         // act
-        Map<String, Integer> results = TestData.sampleLeaderboard1.driverResults();
+        Map<String, Integer> results = TestData.sampleLeaderboard1.participantResults();
 
         // verify
         assertTrue("results " + results, results.containsKey("Lewis Hamilton"));
@@ -31,7 +31,7 @@ public class LeaderboardTest {
         // setup
 
         // act
-        List<String> result = TestData.sampleLeaderboard1.driverRankings();
+        List<String> result = TestData.sampleLeaderboard1.participantRankings();
 
         // verify
         assertEquals("Lewis Hamilton", result.get(0));
@@ -46,7 +46,7 @@ public class LeaderboardTest {
         Leaderboard exEquoLeaderBoard = new Leaderboard(winDriver1, winDriver2);
 
         // act
-        List<String> rankings = exEquoLeaderBoard.driverRankings();
+        List<String> rankings = exEquoLeaderBoard.participantRankings();
 
         // verify
         assertEquals(Arrays.asList(driver1.getName(), driver2.getName(), driver3.getName()), rankings);
