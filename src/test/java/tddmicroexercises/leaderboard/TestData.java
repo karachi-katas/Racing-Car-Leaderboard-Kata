@@ -28,7 +28,7 @@ public class TestData {
         race3 = new Race("Chinese Grand Prix", humanDriver2, humanDriver1, humanDriver3);
         race4 = new Race("Fictional Grand Prix 1", humanDriver1, humanDriver2, driver4);
         race5 = new Race("Fictional Grand Prix 2", driver4, humanDriver2, humanDriver1);
-        driver4.setAlgorithmVersion("1.3");
+        driver4.setName("1.3");
         race6 = new Race("Fictional Grand Prix 3", humanDriver2, humanDriver1, driver4);
 
         sampleLeaderboard1 = new Leaderboard(race1, race2, race3);

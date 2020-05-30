@@ -1,15 +1,21 @@
 package tddmicroexercises.leaderboard;
 
-public abstract class BaseDrive {
-    private String name;
-    private String country;
+public abstract class BaseDriver {
+    protected String name;
+    protected String country;
 
-    public BaseDrive(String name, String country) {
+    public BaseDriver(String name, String country) {
         this.name = name;
         this.country = country;
     }
 
-    public abstract String getName();
+    public String getName() {
+        return name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
 
     @Override
     public int hashCode() {
