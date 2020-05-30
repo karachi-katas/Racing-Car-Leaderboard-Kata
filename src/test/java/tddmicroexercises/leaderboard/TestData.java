@@ -31,7 +31,7 @@ public class TestData {
         driver4.setName("1.3");
         race6 = new Race("Fictional Grand Prix 3", humanDriver2, humanDriver1, driver4);
 
-        sampleLeaderboard1 = new Leaderboard(race1, race2, race3);
-        sampleLeaderboard2 = new Leaderboard(race4, race5, race6);
+        sampleLeaderboard1 = LeaderboardComputer.generate(race1, race2, race3);
+//        sampleLeaderboard2 = LeaderboardComputer.generate(race4, race5, race6);
     }
 }

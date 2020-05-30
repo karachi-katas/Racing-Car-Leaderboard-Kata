@@ -11,45 +11,32 @@ import java.util.Map;
 public class Leaderboard {
 
     private final List<Race> races;
+    private final List<String> driverRankings;
+    private final Map<BaseDriver, Integer> Points;
 
     public Leaderboard(Race... races) {
         this.races = Arrays.asList(races);
+        driverRankings = new ArrayList<>();
+        Points = new HashMap<>();
     }
 
-    public Map<String, Integer> driverResults() {
-        Map<String, Integer> results = new HashMap<>();
-        for (Race race : this.races) {
-            for (BaseDriver baseDriver : race.getDrivers()) {
-                String driverName = baseDriver.getName();
-                int points = RaceResultComputer.getPoints(race, baseDriver);
-                if (results.containsKey(driverName)) {
-                    results.put(driverName, results.get(driverName) + points);
-                } else {
-                    results.put(driverName, 0 + points);
-                }
-            }
-        }
-        return results;
+    public Leaderboard(List<String> driverRankings, Map<BaseDriver, Integer> Points, Race... races) {
+        this.races = Arrays.asList(races);
+        this.driverRankings = driverRankings;
+        this.Points = Points;
+    }
+
+    public List<Race> getRaces() {
+        return races;
+    }
+
+    public Map<BaseDriver, Integer> getPoints() {
+        return Points;
     }
 
     public List<String> driverRankings() {
-        Map<String, Integer> results = driverResults();
-        List<String> resultsList = new ArrayList<>(results.keySet());
-        Collections.sort(resultsList, new DriverByPointsDescendingComparator(results));
-        return resultsList;
+        return driverRankings;
     }
 
-    private static final class DriverByPointsDescendingComparator implements Comparator<String> {
-        private final Map<String, Integer> results;
-
-        private DriverByPointsDescendingComparator(Map<String, Integer> results) {
-            this.results = results;
-        }
-
-        @Override
-        public int compare(String driverName1, String driverName2) {
-            return -results.get(driverName1).compareTo(results.get(driverName2));
-        }
-    }
 
 }

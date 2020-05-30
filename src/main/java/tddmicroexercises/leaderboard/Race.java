@@ -22,6 +22,9 @@ public class Race {
         return drivers;
     }
 
+    public Map<BaseDriver, Integer> getDriversPoint() {
+        return driversPoint;
+    }
 
     @Override
     public String toString() {
