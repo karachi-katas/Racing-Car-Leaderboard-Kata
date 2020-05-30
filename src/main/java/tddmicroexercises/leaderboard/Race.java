@@ -7,21 +7,19 @@ import java.util.Map;
 
 public class Race {
 
-    private static final Integer[] POINTS = new Integer[]{25, 18, 15};
+    private  Integer[] points;
 
     private final String name;
     private final List<Participant> results;
-    private final Map<Participant, String> participantNames;
 
-    public Race(String name, Participant... participants) {
+    public Race(String name, Integer[] points , Participant... participants) {
         this.name = name;
         this.results = Arrays.asList(participants);
-        this.participantNames = new HashMap<>();
-        for (Participant driver : results) {
-            String driverName = driver.getName();
-            //TODO: refactor code.
-            this.participantNames.put(driver, driverName);
-        }
+        this.points = points;
+    }
+
+    public Race(String name , Participant... participants) {
+        this(name, new Integer[]{25, 18, 15}, participants);
     }
 
     public int position(Participant driver) {
@@ -29,7 +27,7 @@ public class Race {
     }
 
     public int getPoints(Participant driver) {
-        return Race.POINTS[position(driver)];
+        return points[position(driver)];
     }
 
     public List<Participant> getResults() {
@@ -37,7 +35,7 @@ public class Race {
     }
 
     public String getDriverName(Participant driver) {
-        return this.participantNames.get(driver);
+        return driver.getName();
     }
 
     @Override
