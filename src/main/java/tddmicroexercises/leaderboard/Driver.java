@@ -1,6 +1,6 @@
 package tddmicroexercises.leaderboard;
 
-public class Driver {
+public class Driver implements IDriver {
 
     private final String name;
     private final String country;
@@ -10,11 +10,13 @@ public class Driver {
         this.country = country;
     }
 
-    public String getName() {
+    @Override
+    public String getIdentity() {
         return name;
     }
 
-    public String getCountry() {
+    @Override
+    public String getRepresentation() {
         return country;
     }
 

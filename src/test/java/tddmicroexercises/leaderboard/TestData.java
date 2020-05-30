@@ -2,9 +2,9 @@ package tddmicroexercises.leaderboard;
 
 public class TestData {
 
-    public static Driver driver1;
-    public static Driver driver2;
-    public static Driver driver3;
+    public static IDriver driver1;
+    public static IDriver driver2;
+    public static IDriver driver3;
     public static SelfDrivingCar driver4;
 
     public static Race race1;
