@@ -1,32 +1,25 @@
 package tddmicroexercises.leaderboard;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Race {
 
 
-
     private final String name;
-    private final List<BaseDriver> results;
+    private final List<BaseDriver> drivers;
+    private final Map<BaseDriver, Integer> driversPoint;
 
 
-    public Race(String name, BaseDriver... baseDrivers) {
+    public Race(String name, BaseDriver... drivers) {
         this.name = name;
-        this.results = Arrays.asList(baseDrivers);
-
+        this.drivers = Arrays.asList(drivers);
+        this.driversPoint = RaceResultComputer.compute(this);
     }
 
-    public int position(BaseDriver baseDriver) {
-        return this.results.indexOf(baseDriver);
-    }
-
-
-
-    public List<BaseDriver> getResults() {
-        return results;
+    public List<BaseDriver> getDrivers() {
+        return drivers;
     }
 
 
