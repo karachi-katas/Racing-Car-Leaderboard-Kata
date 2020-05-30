@@ -37,6 +37,21 @@ public class LeaderboardTest {
         assertEquals("Lewis Hamilton", result.get(0));
     }
 
+
+
+    @Test
+    public void isShouldFindTheWinnerFromLeaderBoardTwo() {
+        // setup
+
+        // act
+        List<String> result = TestData.sampleLeaderboard2.driverRankings();
+        // verify
+        assertEquals("Lewis Hamilton", result.get(0));
+        assertEquals("Nico Rosberg", result.get(1));
+        assertEquals("Self Driving Car - Acme (1.2)", result.get(2));
+        assertEquals("Self Driving Car - Acme (1.3)", result.get(3));
+    }
+
     @Test
     public void itShouldKeepAllDriversWhenSamePoints() {
         // setup
