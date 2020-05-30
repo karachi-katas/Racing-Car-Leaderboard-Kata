@@ -1,11 +1,11 @@
 package tddmicroexercises.leaderboard;
 
-public class Driver {
+public class HumanDriver {
 
     private final String name;
     private final String country;
 
-    public Driver(String name, String country) {
+    public HumanDriver(String name, String country) {
         this.name = name;
         this.country = country;
     }
@@ -28,10 +28,10 @@ public class Driver {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !(obj instanceof Driver)) {
+        if (obj == null || !(obj instanceof HumanDriver)) {
             return false;
         }
-        Driver other = (Driver) obj;
+        HumanDriver other = (HumanDriver) obj;
         return this.name.equals(other.name) && this.country.equals(other.country);
     }
 }

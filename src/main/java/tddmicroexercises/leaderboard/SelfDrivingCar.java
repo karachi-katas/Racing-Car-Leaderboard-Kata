@@ -1,6 +1,6 @@
 package tddmicroexercises.leaderboard;
 
-public class SelfDrivingCar extends Driver {
+public class SelfDrivingCar extends HumanDriver {
 
     private String algorithmVersion;
 
