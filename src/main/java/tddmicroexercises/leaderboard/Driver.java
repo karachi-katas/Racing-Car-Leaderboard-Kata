@@ -1,6 +1,6 @@
 package tddmicroexercises.leaderboard;
 
-public class Driver extends Participant{
+public class Driver extends Participant {
 
 
     public Driver(String name, String country) {

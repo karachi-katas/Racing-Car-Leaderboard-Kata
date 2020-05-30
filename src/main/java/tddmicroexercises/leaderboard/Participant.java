@@ -9,4 +9,11 @@ public abstract class Participant {
         this.affiliation = affiliation;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getAffiliation() {
+        return affiliation;
+    }
 }
