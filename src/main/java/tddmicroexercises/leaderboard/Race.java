@@ -11,16 +11,10 @@ public class Race {
 
     private final String name;
     private final List<Car> results;
-    private final Map<Car, String> carNames;
 
     public Race(String name, Car... cars) {
         this.name = name;
         this.results = Arrays.asList(cars);
-        this.carNames = new HashMap<>();
-        for (Car car : results) {
-            String driverName = car.getName();
-            this.carNames.put(car, driverName);
-        }
     }
 
     public int position(Car car) {
@@ -35,9 +29,6 @@ public class Race {
         return results;
     }
 
-    public String getCarName(Car car) {
-        return this.carNames.get(car);
-    }
 
     @Override
     public String toString() {
@@ -46,9 +37,9 @@ public class Race {
 
     public Map<String, Integer> getRaceResults() {
         Map<String, Integer> results = new HashMap<String, Integer>();
-        for (Car driver : getContestants()) {
-            String driverName = getCarName(driver);
-            int points = getPoints(driver);
+        for (Car car : getContestants()) {
+            String driverName = car.getDriverName();
+            int points = getPoints(car);
             results.put(driverName, points);
         }
 

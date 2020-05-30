@@ -3,11 +3,11 @@ package tddmicroexercises.leaderboard;
 public class SelfDrivingCar implements Car {
 
     private String algorithmVersion;
-    private String country;
+    private String company;
 
     public SelfDrivingCar(String algorithmVersion, String company) {
         this.algorithmVersion = algorithmVersion;
-        this.country = company;
+        this.company = company;
     }
 
     public String getAlgorithmVersion() {
@@ -19,12 +19,7 @@ public class SelfDrivingCar implements Car {
     }
 
     @Override
-    public String getName() {
-        return "Self Driving Car - " + getCountry() + " (" + getAlgorithmVersion() + ")";
-    }
-
-    @Override
-    public String getCountry() {
-        return country;
+    public String getDriverName() {
+        return "Self Driving Car - " + company + " (" + getAlgorithmVersion() + ")";
     }
 }

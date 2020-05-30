@@ -25,9 +25,9 @@ public class TestData {
 
     static {
 
-        driver1 = new Driver("Nico Rosberg", "DE");
-        driver2 = new Driver("Lewis Hamilton", "UK");
-        driver3 = new Driver("Sebastian Vettel", "DE");
+        driver1 = new Driver("Nico Rosberg");
+        driver2 = new Driver("Lewis Hamilton");
+        driver3 = new Driver("Sebastian Vettel");
 
         humanDrivenCar1 = new HumanDrivenCar(driver1);
         humanDrivenCar2 = new HumanDrivenCar(driver2);

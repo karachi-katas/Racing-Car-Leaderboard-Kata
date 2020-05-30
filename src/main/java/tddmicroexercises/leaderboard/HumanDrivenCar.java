@@ -10,12 +10,8 @@ public class HumanDrivenCar implements Car {
 
 
     @Override
-    public String getName() {
+    public String getDriverName() {
         return driver.getName();
     }
 
-    @Override
-    public String getCountry() {
-        return driver.getCountry();
-    }
 }
