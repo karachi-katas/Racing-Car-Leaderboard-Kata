@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Leaderboard{
 
@@ -18,17 +19,18 @@ public class Leaderboard{
 
     public Map<String, Integer> driverResults() {
         Map<String, Integer> results = new HashMap<>();
+
         for (Race race : this.races) {
             Map<String, Integer> raceResults = race.getRaceResults();
-            for(Map.Entry<String, Integer> entry:raceResults.entrySet()) {
-                if(results.containsKey(entry.getKey())){
-                    results.put(entry.getKey(), results.get(entry.getKey()) + entry.getValue());
-                } else {
-                    results.put(entry.getKey(), entry.getValue());
-                }
-            }
+            mergeResults(results, raceResults);
         }
         return results;
+    }
+
+    private void mergeResults(Map<String, Integer> results, Map<String, Integer> raceResults) {
+        for(Map.Entry<String, Integer> entry:raceResults.entrySet()) {
+            results.merge(entry.getKey(), entry.getValue(), Integer::sum);
+        }
     }
 
     public List<String> driverRankings() {

@@ -10,16 +10,12 @@ public class SelfDrivingCar implements Car {
         this.company = company;
     }
 
-    public String getAlgorithmVersion() {
-        return algorithmVersion;
-    }
-
     public void setAlgorithmVersion(String algorithmVersion) {
         this.algorithmVersion = algorithmVersion;
     }
 
     @Override
     public String getDriverName() {
-        return "Self Driving Car - " + company + " (" + getAlgorithmVersion() + ")";
+        return "Self Driving Car - " + company + " (" + algorithmVersion + ")";
     }
 }

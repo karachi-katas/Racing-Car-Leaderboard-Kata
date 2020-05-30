@@ -26,14 +26,13 @@ public class Race {
     }
 
 
-
     @Override
     public String toString() {
         return name;
     }
 
     public Map<String, Integer> getRaceResults() {
-        Map<String, Integer> results = new HashMap<String, Integer>();
+        Map<String, Integer> results = new HashMap<>();
         for (Car car : contestants) {
             String driverName = car.getDriverName();
             int points = getPoints(car);
