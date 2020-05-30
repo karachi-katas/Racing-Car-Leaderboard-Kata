@@ -9,12 +9,8 @@ public class SelfDrivingCar extends Driver {
         this.algorithmVersion = algorithmVersion;
     }
 
-    public String getAlgorithmVersion() {
-        return algorithmVersion;
+    @Override
+    public String getIdentity() {
+        return "Self Driving Car - " + getRepresentation() + " (" + super.getIdentity() + ")";
     }
-
-    public void setAlgorithmVersion(String algorithmVersion) {
-        this.algorithmVersion = algorithmVersion;
-    }
-
 }

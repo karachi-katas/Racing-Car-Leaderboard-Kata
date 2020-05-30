@@ -5,7 +5,7 @@ public class TestData {
     public static IDriver driver1;
     public static IDriver driver2;
     public static IDriver driver3;
-    public static SelfDrivingCar driver4;
+    public static IDriver driver4;
 
     public static Race race1;
     public static Race race2;
@@ -28,7 +28,10 @@ public class TestData {
         race3 = new Race("Chinese Grand Prix", driver2, driver1, driver3);
         race4 = new Race("Fictional Grand Prix 1", driver1, driver2, driver4);
         race5 = new Race("Fictional Grand Prix 2", driver4, driver2, driver1);
-        driver4.setAlgorithmVersion("1.3");
+//        driver4.setAlgorithmVersion("1.3");
+
+        driver4 = new SelfDrivingCar("1.3", "Acme");
+
         race6 = new Race("Fictional Grand Prix 3", driver2, driver1, driver4);
 
         sampleLeaderboard1 = new Leaderboard(race1, race2, race3);
