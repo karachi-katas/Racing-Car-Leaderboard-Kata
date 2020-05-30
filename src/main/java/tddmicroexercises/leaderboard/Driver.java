@@ -2,25 +2,25 @@ package tddmicroexercises.leaderboard;
 
 public class Driver {
 
-    private final String name;
-    private final String country;
+    private final String identity;
+    private final String origin;
 
-    public Driver(String name, String country) {
-        this.name = name;
-        this.country = country;
+    public Driver(String identity, String origin) {
+        this.identity = identity;
+        this.origin = origin;
     }
 
-    public String getName() {
-        return name;
+    public String getIdentity() {
+        return identity;
     }
 
-    public String getCountry() {
-        return country;
+    public String getOrigin() {
+        return origin;
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode() * 31 + country.hashCode();
+        return identity.hashCode() * 31 + origin.hashCode();
     }
 
     @Override
@@ -32,6 +32,6 @@ public class Driver {
             return false;
         }
         Driver other = (Driver) obj;
-        return this.name.equals(other.name) && this.country.equals(other.country);
+        return this.identity.equals(other.identity) && this.origin.equals(other.origin);
     }
 }
