@@ -16,6 +16,7 @@ CSharp/.*crunch*.local.xml
 scala/target
 scala/project/target
 *.iml
+target
 
 # Xcode
 build/
