@@ -10,33 +10,33 @@ public class Race {
     private static final Integer[] POINTS = new Integer[]{25, 18, 15};
 
     private final String name;
-    private final List<Driver> results;
-    private final Map<Driver, String> driverNames;
+    private final List<Car> results;
+    private final Map<Car, String> carNames;
 
-    public Race(String name, Driver... drivers) {
+    public Race(String name, Car... cars) {
         this.name = name;
-        this.results = Arrays.asList(drivers);
-        this.driverNames = new HashMap<>();
-        for (Driver driver : results) {
-            String driverName = driver.getName();
-            this.driverNames.put(driver, driverName);
+        this.results = Arrays.asList(cars);
+        this.carNames = new HashMap<>();
+        for (Car car : results) {
+            String driverName = car.getName();
+            this.carNames.put(car, driverName);
         }
     }
 
-    public int position(Driver driver) {
-        return this.results.indexOf(driver);
+    public int position(Car car) {
+        return this.results.indexOf(car);
     }
 
-    public int getPoints(Driver driver) {
-        return Race.POINTS[position(driver)];
+    public int getPoints(Car car) {
+        return Race.POINTS[position(car)];
     }
 
-    public List<Driver> getResults() {
+    public List<Car> getResults() {
         return results;
     }
 
-    public String getDriverName(Driver driver) {
-        return this.driverNames.get(driver);
+    public String getCarName(Car car) {
+        return this.carNames.get(car);
     }
 
     @Override

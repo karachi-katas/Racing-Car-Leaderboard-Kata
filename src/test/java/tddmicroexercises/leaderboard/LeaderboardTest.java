@@ -11,6 +11,9 @@ import static org.junit.Assert.assertTrue;
 import static tddmicroexercises.leaderboard.TestData.driver1;
 import static tddmicroexercises.leaderboard.TestData.driver2;
 import static tddmicroexercises.leaderboard.TestData.driver3;
+import static tddmicroexercises.leaderboard.TestData.humanDrivenCar1;
+import static tddmicroexercises.leaderboard.TestData.humanDrivenCar2;
+import static tddmicroexercises.leaderboard.TestData.humanDrivenCar3;
 
 public class LeaderboardTest {
 
@@ -41,8 +44,8 @@ public class LeaderboardTest {
     public void itShouldKeepAllDriversWhenSamePoints() {
         // setup
         // bug, drops drivers with same points
-        Race winDriver1 = new Race("Australian Grand Prix", driver1, driver2, driver3);
-        Race winDriver2 = new Race("Malaysian Grand Prix", driver2, driver1, driver3);
+        Race winDriver1 = new Race("Australian Grand Prix", humanDrivenCar1, humanDrivenCar2, humanDrivenCar3);
+        Race winDriver2 = new Race("Malaysian Grand Prix", humanDrivenCar2, humanDrivenCar1, humanDrivenCar3);
         Leaderboard exEquoLeaderBoard = new Leaderboard(winDriver1, winDriver2);
 
         // act
