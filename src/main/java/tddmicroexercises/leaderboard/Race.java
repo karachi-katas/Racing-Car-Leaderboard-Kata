@@ -10,24 +10,21 @@ public class Race {
     private static final Integer[] POINTS = new Integer[]{25, 18, 15};
 
     private final String name;
-    private final List<Car> results;
+    private final List<Car> contestants;
 
     public Race(String name, Car... cars) {
         this.name = name;
-        this.results = Arrays.asList(cars);
+        this.contestants = Arrays.asList(cars);
     }
 
     public int position(Car car) {
-        return this.results.indexOf(car);
+        return this.contestants.indexOf(car);
     }
 
     public int getPoints(Car car) {
         return Race.POINTS[position(car)];
     }
 
-    public List<Car> getContestants() {
-        return results;
-    }
 
 
     @Override
@@ -37,7 +34,7 @@ public class Race {
 
     public Map<String, Integer> getRaceResults() {
         Map<String, Integer> results = new HashMap<String, Integer>();
-        for (Car car : getContestants()) {
+        for (Car car : contestants) {
             String driverName = car.getDriverName();
             int points = getPoints(car);
             results.put(driverName, points);
