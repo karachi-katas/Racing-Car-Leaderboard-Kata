@@ -19,7 +19,7 @@ public class LeaderboardTest {
         // setup
 
         // act
-        Map<String, Integer> results = TestData.sampleLeaderboard1.driverResults();
+        Map<String, Integer> results = TestData.sampleLeaderboard1.getResults();
 
         // verify
         assertTrue("results " + results, results.containsKey("Lewis Hamilton"));

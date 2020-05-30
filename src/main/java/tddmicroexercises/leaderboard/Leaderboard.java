@@ -11,29 +11,42 @@ import java.util.Map;
 public class Leaderboard {
 
     private final List<Race> races;
+    private Map<String, Integer> results;
 
     public Leaderboard(Race... races) {
+
         this.races = Arrays.asList(races);
+        this.results=new HashMap<String, Integer>();
+        calculateResults();
     }
 
-    public Map<String, Integer> driverResults() {
-        Map<String, Integer> results = new HashMap<>();
+    private void calculateResults(){
+
         for (Race race : this.races) {
-            for (IDriver driver : race.getResults()) {
-                String driverName = driver.getIdentity();
-                int points = race.getPoints(driver);
-                if (results.containsKey(driverName)) {
-                    results.put(driverName, results.get(driverName) + points);
-                } else {
-                    results.put(driverName, 0 + points);
-                }
+            for (IDriver driver : race.getDrivers()) {
+                accumulatePoints(race,driver);
             }
         }
+    }
+
+    private void accumulatePoints(Race race,IDriver driver){
+        String driverName = driver.getIdentity();
+        int points = race.getPoints(driver);
+        if (results.containsKey(driverName)) {
+            results.put(driverName, results.get(driverName) + points);
+        } else {
+            results.put(driverName,points);
+        }
+    }
+
+    public Map<String, Integer> getResults() {
         return results;
     }
 
+
+
     public List<String> driverRankings() {
-        Map<String, Integer> results = driverResults();
+        Map<String, Integer> results = getResults();
         List<String> resultsList = new ArrayList<>(results.keySet());
         Collections.sort(resultsList, new DriverByPointsDescendingComparator(results));
         return resultsList;
